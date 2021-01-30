@@ -10,7 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "mocha": "5.2.0",
-    "selenium-standalone": "6.15.3",
+    "selenium-standalone": "^6.23.0",
     "webdriverio": "4.13.2"
+  },
+  "devDependencies": {
+    "wdio-mocha-framework": "^0.6.4"
   }
 }
