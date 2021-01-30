@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "selenium:start": "./node_modules/.bin/selenium-standalone start",
-    "wdio:run": "./node_modules/.bin/wdio wdio.conf.js"
+    "wdio:run": "./node_modules/.bin/wdio ./wdio.conf.js"
   },
   "author": "",
   "license": "ISC",
