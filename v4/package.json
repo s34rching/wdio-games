@@ -1,0 +1,16 @@
+{
+  "name": "wdio-v4",
+  "version": "1.0.0",
+  "description": "deprecated version of wdio to learn <3",
+  "main": "index.js",
+  "scripts": {
+    "selenium:start": "./node_modules/.bin/selenium-standalone start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "5.2.0",
+    "selenium-standalone": "6.15.3",
+    "webdriverio": "4.13.2"
+  }
+}
