@@ -1,5 +1,8 @@
-exports.config = {
+const baseUrl = (process.env.SERVER === 'prod')
+ ? "https://www.google.com"
+ : "http://www.webdriveruniversity.com"
 
+exports.config = {
     //
     // ==================
     // Specify Test Files
@@ -77,7 +80,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://www.webdriveruniversity.com',
+    baseUrl: baseUrl,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
