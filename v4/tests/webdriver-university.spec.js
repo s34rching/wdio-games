@@ -9,5 +9,6 @@ describe("Verify whether webdriveruniversity links on homepage work correctly", 
     it("should open 'Login Portal'", async function() {
         await browser.url('http://www.webdriveruniversity.com/')
         await browser.click('#login-portal')
+        await browser.pause(3000)
     });
 });
