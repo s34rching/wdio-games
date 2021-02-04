@@ -1,4 +1,5 @@
-const assert = require('assert');
+const { expect, should } = require('chai');
+const chaiShould = should();
 
 describe("Verify whether webdriveruniversity links on homepage work correctly", function() {
     it("should open 'Contact Us' page", async function() {
@@ -6,7 +7,7 @@ describe("Verify whether webdriveruniversity links on homepage work correctly", 
         await browser.url('/');
         await browser.click("#contact-us");
         const title = await browser.getTitle();
-        assert.equal(title, 'WebDriverUniversity.com')
+        expect(title).to.equal('WebDriverUniversity.com')
         await browser.pause(3000);
     });
 
@@ -14,7 +15,7 @@ describe("Verify whether webdriveruniversity links on homepage work correctly", 
         await browser.url('/');
         await browser.click('#login-portal');
         const title = await browser.getTitle();
-        assert.equal(title, 'WebDriverUniversity.com');
+        title.should.equal('WebDriverUniversity.com')
         await browser.pause(3000);
     });
 });
