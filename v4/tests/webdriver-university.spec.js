@@ -1,6 +1,3 @@
-const { expect, should } = require('chai');
-const chaiShould = should();
-
 describe("Verify whether webdriveruniversity links on homepage work correctly", function() {
     it("should open 'Contact Us' page", async function() {
         await browser.setViewportSize({ width: 1200, height: 800 });
