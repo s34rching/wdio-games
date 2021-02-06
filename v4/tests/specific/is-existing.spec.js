@@ -1,9 +1,9 @@
-describe('Not Displayed Elements', function() {
+describe('"isExisting"', function() {
     beforeEach(async function() {
         await browser.url("/Hidden-Elements/index.html");
     })
 
-    it('should find element if it is not displayed', async function() {
+    it('should find element if if its "display" property set to "none"', async function() {
         const isExisting = await browser.isExisting('#not-displayed')
         expect(isExisting).to.equal(true)
     });
