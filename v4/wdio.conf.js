@@ -1,5 +1,12 @@
+const axios = require('axios');
+
 const baseUrl = (process.env.SERVER === 'prod') ? "https://www.google.com" : "http://www.webdriveruniversity.com"
 const timeout = (process.env.DEBUG) ? 999999 : 10000
+
+const getUsersData = async () => {
+    const res = await axios({ method: "GET", url: "https://jsonplaceholder.typicode.com/posts/1/comments" });
+    return res.data.map((item) => ({ email: item.email, message: item.body }));
+}
 
 exports.config = {
     //
@@ -148,7 +155,7 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
+    // onPrepare:  async function (config, capabilities) {
     // },
     /**
      * Gets executed just before initialising the webdriver session and test framework. It allows you
@@ -165,7 +172,8 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    before: function (capabilities, specs) {
+    before: async function (capabilities, specs) {
+        usersData = await getUsersData();
         expect = require('chai').expect;
         should = require('chai').should();
     },
