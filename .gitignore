@@ -1,7 +1,7 @@
 .idea/
 
-/v4/node_modules
-/v4/errorShots
+/v4-async/node_modules
+/v4-async/errorShots
 
 /v5/node_modules
 /v5/errorShots
