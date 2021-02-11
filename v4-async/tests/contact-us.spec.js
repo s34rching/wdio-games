@@ -36,7 +36,7 @@ describe('"Contact Us"', function() {
             message: 'The most exiting thing!',
         });
 
-        expect(await ContactUsPage.waitForEmptyFieldError()).to.be.false;
+        expect(await ContactUsPage.waitForEmptyFieldError()).to.be.true;
     });
 
     it('should NOT be able to submit a form with missing email', async function() {
