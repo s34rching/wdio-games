@@ -2,6 +2,10 @@
 
 /v4-async/node_modules
 /v4-async/errorShots
+/v4-async/reports
+/v4-async/allure-report
 
 /v5/node_modules
 /v5/errorShots
+/v5/reports
+/v5/allure-report
