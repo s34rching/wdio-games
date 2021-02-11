@@ -134,12 +134,15 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/reporters/dot.html
-    reporters: ['dot', 'allure'],
+    reporters: [ 'dot', 'allure' ],
 
     reporterOptions: {
         allure: {
-            outputDir: './reports/'
-        },
+            outputDir: './reports/',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: false,
+            useCucumberStepReporter: false
+        }
     },
     //
     // Options to be passed to Mocha.
@@ -219,8 +222,11 @@ exports.config = {
      * Function to be executed after a test (in Mocha/Jasmine) or a step (in Cucumber) ends.
      * @param {Object} test test details
      */
-    // afterTest: function (test) {
-    // },
+    afterTest: async function (test, context, params) {
+        if (!test.passed) {
+           await browser.saveScreenshot(`./errorShots/error-${Date.now()}.png`);
+        }
+    },
     /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details
