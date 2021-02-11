@@ -6,7 +6,7 @@
   "scripts": {
     "selenium:start": "./node_modules/.bin/selenium-standalone start",
     "wdio:run": "./node_modules/.bin/wdio ./wdio.conf.js",
-    "allure:report": "./node_modules/.bin/allure generate ./reports/ --clean"
+    "postwdio:run": "./node_modules/.bin/allure generate ./reports/ --clean"
   },
   "author": "",
   "license": "ISC",
