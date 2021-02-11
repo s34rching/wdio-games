@@ -14,8 +14,9 @@ describe('"Contact Us"', function() {
                 message: user.message
             });
 
-            await ContactUsPage.waitForSuccessMessage()
-            expect(await ContactUsPage.replyHeader.isVisible()).to.be.true;
+            await ContactUsPage.waitForSuccessMessage();
+            const isVisible = await ContactUsPage.replyHeader.isVisible();
+            expect(isVisible).to.be.true;
         });
     })
 

@@ -17,6 +17,7 @@
     "allure-commandline": "^2.13.8",
     "axios": "^0.21.1",
     "chai": "^4.3.0",
+    "rimraf": "^3.0.2",
     "wdio-allure-reporter": "^0.8.3",
     "wdio-mocha-framework": "^0.6.4",
     "wdio-selenium-standalone-service": "^0.0.12"

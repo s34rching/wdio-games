@@ -1,4 +1,5 @@
 const axios = require('axios');
+const rimraf = require('rimraf');
 
 const baseUrl = (process.env.SERVER === 'prod') ? "https://www.google.com" : "http://www.webdriveruniversity.com"
 const timeout = (process.env.DEBUG) ? 999999 : 10000
@@ -164,8 +165,19 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare:  async function (config, capabilities) {
-    // },
+    onPrepare:  async function (config, capabilities) {
+        const onError = (err) => {
+            if (err) {
+                console.log(err)
+            }
+        }
+        const supportDirs = [ 'errorShots', 'reports', 'allure-report' ];
+        const removeFolders = async () => Promise.all(supportDirs.map((dir) => rimraf(dir, {}, onError)));
+
+        await removeFolders().then((message, err) => {
+            onError(err);
+        })
+    },
     /**
      * Gets executed just before initialising the webdriver session and test framework. It allows you
      * to manipulate configurations depending on the capability or spec.
@@ -173,7 +185,7 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // beforeSession: function (config, capabilities, specs) {
+    // beforeSession: async function (config, capabilities, specs) {
     // },
     /**
      * Gets executed before test execution begins. At this point you can access to all global
@@ -233,7 +245,6 @@ exports.config = {
      */
     // afterSuite: function (suite) {
     // },
-
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name
