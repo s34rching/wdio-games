@@ -14,8 +14,8 @@ describe('"Contact Us"', function() {
                 message: user.message
             });
 
-            const reply = await browser.getText('#contact_reply h1');
-            expect(reply).to.equal('Thank You for your Message!');
+            await ContactUsPage.waitForSuccessMessage()
+            expect(await ContactUsPage.replyHeader.isVisible()).to.be.true;
         });
     })
 
@@ -26,8 +26,7 @@ describe('"Contact Us"', function() {
             message: 'The most exiting thing!',
         });
 
-        const isExisting = await browser.isExisting('#contact_reply h1');
-        expect(isExisting).to.be.false;
+        expect(await ContactUsPage.waitForEmptyFieldError()).to.be.true;
     });
 
     it('should NOT be able to submit a form with missing last name', async function() {
@@ -37,8 +36,7 @@ describe('"Contact Us"', function() {
             message: 'The most exiting thing!',
         });
 
-        const isExisting = await browser.isExisting('#contact_reply h1');
-        expect(isExisting).to.be.false;
+        expect(await ContactUsPage.waitForEmptyFieldError()).to.be.true;
     });
 
     it('should NOT be able to submit a form with missing email', async function() {
@@ -48,7 +46,6 @@ describe('"Contact Us"', function() {
             message: 'The most exiting thing!',
         });
 
-        const errorText = await browser.getText('body');
-        expect(errorText).to.include('Error: all fields are required');
+        expect(await ContactUsPage.waitForEmptyFieldError()).to.be.true;
     });
 });

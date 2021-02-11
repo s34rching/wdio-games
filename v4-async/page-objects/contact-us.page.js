@@ -19,6 +19,10 @@ class ContactUsPage {
         return $('[type="submit"]')
     }
 
+    get replyHeader() {
+        return $('#contact_reply h1')
+    }
+
     async sendMessageToCompany({ firstName, lastName, email, message }) {
         if (firstName) {
             await this.firstNameField.setValue(firstName)
@@ -33,6 +37,21 @@ class ContactUsPage {
             await this.messageField.setValue(message)
         }
         await this.submitButton.click()
+    }
+
+    async waitForSuccessMessage() {
+        return browser.waitUntil(async function() {
+            const replyText = await browser.getText('#contact_reply h1');
+            return replyText === 'Thank You for your Message!';
+        })
+    }
+
+    async waitForEmptyFieldError() {
+        return browser.waitUntil(async function() {
+            const errorText = await browser.getText('body')
+            const matches = errorText.match('Error: all fields are required')[0]
+            return !!(matches)
+        })
     }
 }
 
