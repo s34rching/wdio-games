@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "selenium:start": "./node_modules/.bin/selenium-standalone start",
-    "wdio:run": "./node_modules/.bin/wdio ./wdio.conf.js"
+    "wdio:run": "./node_modules/.bin/wdio ./wdio.conf.js",
+    "allure:report": "./node_modules/.bin/allure generate ./reports/ --clean"
   },
   "author": "",
   "license": "ISC",
@@ -13,8 +14,10 @@
     "webdriverio": "4.13.2"
   },
   "devDependencies": {
+    "allure-commandline": "^2.13.8",
     "axios": "^0.21.1",
     "chai": "^4.3.0",
+    "wdio-allure-reporter": "^0.8.3",
     "wdio-mocha-framework": "^0.6.4",
     "wdio-selenium-standalone-service": "^0.0.12"
   }
