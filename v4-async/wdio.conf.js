@@ -234,7 +234,7 @@ exports.config = {
      * Function to be executed after a test (in Mocha/Jasmine) or a step (in Cucumber) ends.
      * @param {Object} test test details
      */
-    afterTest: async function (test, context, params) {
+    afterTest: async function (test) {
         if (!test.passed) {
            await browser.saveScreenshot(`./errorShots/error-${Date.now()}.png`);
         }
