@@ -6,7 +6,7 @@
   "scripts": {
     "selenium:start": "./node_modules/.bin/selenium-standalone start",
     "wdio:run": "./node_modules/.bin/wdio ./wdio.conf.js",
-    "wdio:run:jenkins": "./node_modules/.bin/wdio ./wdio.conf.jenkins.js --logLevel=silent",
+    "wdio:run:jenkins": "./node_modules/.bin/wdio ./wdio.conf.jenkins.js",
     "allure:report": "./node_modules/.bin/allure generate ./reports/ --clean",
     "jenkins:start": "sudo systemctl start jenkins"
   },
