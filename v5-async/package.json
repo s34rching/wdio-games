@@ -1,0 +1,27 @@
+{
+  "name": "wdio-v4",
+  "version": "1.0.0",
+  "description": "deprecated version of wdio to learn <3",
+  "main": "index.js",
+  "scripts": {
+    "selenium:start": "./node_modules/.bin/selenium-standalone start",
+    "wdio:run": "./node_modules/.bin/wdio ./wdio.conf.js",
+    "wdio:run:jenkins": "./node_modules/.bin/wdio ./wdio.conf.jenkins.js",
+    "allure:report": "./node_modules/.bin/allure generate ./reports/ --clean",
+    "jenkins:start": "sudo systemctl start jenkins"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webdriverio": "4.13.2"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.13.8",
+    "axios": "^0.21.1",
+    "chai": "^4.3.0",
+    "rimraf": "^3.0.2",
+    "wdio-allure-reporter": "^0.8.3",
+    "wdio-mocha-framework": "^0.6.4",
+    "wdio-selenium-standalone-service": "^0.0.12"
+  }
+}

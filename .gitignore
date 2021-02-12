@@ -5,7 +5,7 @@
 /v4-async/reports
 /v4-async/allure-report
 
-/v5/node_modules
-/v5/errorShots
-/v5/reports
-/v5/allure-report
+/v5-async/node_modules
+/v5-async/errorShots
+/v5-async/reports
+/v5-async/allure-report
