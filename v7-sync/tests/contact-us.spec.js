@@ -1,11 +1,11 @@
 const ContactUsPage = require('../page-objects/contact-us.page');
 
-describe('"Contact Us"', function() {
-    beforeEach(function() {
+describe('"Contact Us"', () => {
+    beforeEach(() => {
         browser.url('/Contact-Us/contactus.html');
     })
 
-    it('should be able to submit a successful submission via contact us form', function() {
+    it('should be able to submit a successful submission via contact us form', () => {
         ContactUsPage.sendMessageToCompany({
             firstName: 'John',
             lastName: 'Doe',
@@ -16,7 +16,7 @@ describe('"Contact Us"', function() {
         expect(ContactUsPage.replyHeader.isDisplayed()).toBe(true);
     });
 
-    it('should be able to see proper submission text', function() {
+    it('should be able to see proper submission text', () => {
         ContactUsPage.sendMessageToCompany({
             firstName: 'John',
             lastName: 'Doe',
@@ -27,7 +27,7 @@ describe('"Contact Us"', function() {
         expect(ContactUsPage.replyHeader.getText()).toBe('Thank You for your Message!');
     });
 
-    it('should NOT be able to submit a form with missing first name', function() {
+    it('should NOT be able to submit a form with missing first name', () => {
         ContactUsPage.sendMessageToCompany({
             lastName: 'Doe',
             email: 'john_doe@domain.com',
@@ -37,7 +37,7 @@ describe('"Contact Us"', function() {
         expect(ContactUsPage.emptyFieldError.isDisplayed()).toBe(true);
     });
 
-    it('should NOT be able to submit a form with missing last name', function() {
+    it('should NOT be able to submit a form with missing last name', () => {
         ContactUsPage.sendMessageToCompany({
             firstName: 'John',
             email: 'john_doe@domain.com',
@@ -47,7 +47,7 @@ describe('"Contact Us"', function() {
         expect(ContactUsPage.emptyFieldError.isDisplayed()).toBe(true);
     });
 
-    it('should NOT be able to submit a form with missing email', function() {
+    it('should NOT be able to submit a form with missing email', () => {
         ContactUsPage.sendMessageToCompany({
             firstName: 'John',
             lastName: 'Doe',
