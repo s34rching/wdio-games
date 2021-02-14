@@ -3,13 +3,7 @@
   "version": "1.0.0",
   "description": "deprecated version of wdio to learn <3",
   "main": "index.js",
-  "scripts": {
-    "selenium:start": "./node_modules/.bin/selenium-standalone start",
-    "wdio:run": "./node_modules/.bin/wdio wdio.conf.backup.js",
-    "wdio:run:jenkins": "./node_modules/.bin/wdio ./wdio.conf.jenkins.js",
-    "allure:report": "./node_modules/.bin/allure generate ./reports/ --clean",
-    "jenkins:start": "sudo systemctl start jenkins"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
