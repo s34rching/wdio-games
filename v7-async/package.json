@@ -1,7 +1,7 @@
 {
   "name": "wdio-v4",
   "version": "1.0.0",
-  "description": "deprecated version of wdio to learn <3",
+  "description": "it seems to be crazy to jump to async v7 !_!",
   "main": "index.js",
   "scripts": {},
   "author": "",
