@@ -23,32 +23,32 @@ class ContactUsPage {
         return $('#contact_reply h1')
     }
 
-    async sendMessageToCompany({ firstName, lastName, email, message }) {
+    sendMessageToCompany({ firstName, lastName, email, message }) {
         if (firstName) {
-            await this.firstNameField.setValue(firstName)
+            this.firstNameField.setValue(firstName)
         }
         if (lastName) {
-            await this.lastNameField.setValue(lastName)
+            this.lastNameField.setValue(lastName)
         }
         if (email) {
-            await this.emailField.setValue(email)
+            this.emailField.setValue(email)
         }
         if (message) {
-            await this.messageField.setValue(message)
+            this.messageField.setValue(message)
         }
-        await this.submitButton.click()
+        this.submitButton.click()
     }
 
-    async waitForSuccessMessage() {
-        return browser.waitUntil(async function() {
-            const replyText = await browser.getText('#contact_reply h1');
+    waitForSuccessMessage() {
+        return browser.waitUntil(function() {
+            const replyText = browser.getText('#contact_reply h1');
             return replyText === 'Thank You for your Message!';
         })
     }
 
-    async waitForEmptyFieldError() {
-        return browser.waitUntil(async function() {
-            const errorText = await browser.getText('body')
+    waitForEmptyFieldError() {
+        return browser.waitUntil(function() {
+            const errorText = browser.getText('body')
             const matches = errorText.match('Error: all fields are required')[0]
             return !!(matches)
         })

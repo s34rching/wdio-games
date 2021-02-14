@@ -1,15 +1,16 @@
 {
   "name": "wdio-v4",
   "version": "1.0.0",
-  "description": "it seems to be crazy to jump to async v7 !_!",
+  "description": "It seems to be crazy to jump to async v7 !_!",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "wdio:run": "npx wdio run ./wdio.config.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@wdio/cli": "^7.0.3"
   },
   "devDependencies": {
-    "axios": "^0.21.1"
   }
 }
