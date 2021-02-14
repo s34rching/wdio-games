@@ -13,7 +13,7 @@ describe('"Contact Us"', () => {
             message: 'The most exiting thing!'
         });
 
-        expect(ContactUsPage.replyHeader.waitForDisplayed()).toBe(true);
+        expect(ContactUsPage.replyHeader).toBeVisible();
     });
 
     it('should be able to see proper submission text', () => {
@@ -24,7 +24,7 @@ describe('"Contact Us"', () => {
             message: 'The most exiting thing!'
         });
 
-        expect(ContactUsPage.replyHeader.getText()).toBe('Thank You for your Message!');
+        expect(ContactUsPage.replyHeader).toHaveTextContaining('Thank You for your Message!');
     });
 
     it('should NOT be able to submit a form with missing first name', () => {
@@ -34,7 +34,7 @@ describe('"Contact Us"', () => {
             message: 'The most exiting thing!',
         });
 
-        expect(ContactUsPage.emptyFieldError.waitForDisplayed()).toBe(true);
+        expect(ContactUsPage.emptyFieldError).toBeVisible();
     });
 
     it('should NOT be able to submit a form with missing last name', () => {
@@ -44,7 +44,7 @@ describe('"Contact Us"', () => {
             message: 'The most exiting thing!',
         });
 
-        expect(ContactUsPage.emptyFieldError.waitForDisplayed()).toBe(true);
+        expect(ContactUsPage.emptyFieldError).toBeVisible();
     });
 
     it('should NOT be able to submit a form with missing email', () => {
@@ -54,6 +54,6 @@ describe('"Contact Us"', () => {
             message: 'The most exiting thing!',
         });
 
-        expect(ContactUsPage.emptyFieldError.waitForDisplayed()).toBe(true);
+        expect(ContactUsPage.emptyFieldError).toBeVisible();
     });
 });
