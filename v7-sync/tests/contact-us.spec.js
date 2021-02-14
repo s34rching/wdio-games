@@ -13,7 +13,7 @@ describe('"Contact Us"', () => {
             message: 'The most exiting thing!'
         });
 
-        expect(ContactUsPage.replyHeader.isDisplayed()).toBe(true);
+        expect(ContactUsPage.replyHeader.waitForDisplayed()).toBe(true);
     });
 
     it('should be able to see proper submission text', () => {
@@ -34,7 +34,7 @@ describe('"Contact Us"', () => {
             message: 'The most exiting thing!',
         });
 
-        expect(ContactUsPage.emptyFieldError.isDisplayed()).toBe(true);
+        expect(ContactUsPage.emptyFieldError.waitForDisplayed()).toBe(true);
     });
 
     it('should NOT be able to submit a form with missing last name', () => {
@@ -44,7 +44,7 @@ describe('"Contact Us"', () => {
             message: 'The most exiting thing!',
         });
 
-        expect(ContactUsPage.emptyFieldError.isDisplayed()).toBe(true);
+        expect(ContactUsPage.emptyFieldError.waitForDisplayed()).toBe(true);
     });
 
     it('should NOT be able to submit a form with missing email', () => {
@@ -54,6 +54,6 @@ describe('"Contact Us"', () => {
             message: 'The most exiting thing!',
         });
 
-        expect(ContactUsPage.emptyFieldError.isDisplayed()).toBe(true);
+        expect(ContactUsPage.emptyFieldError.waitForDisplayed()).toBe(true);
     });
 });
