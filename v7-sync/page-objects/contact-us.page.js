@@ -1,26 +1,30 @@
 class ContactUsPage {
     get firstNameField() {
-        return $('[name="first_name"]')
+        return $('[name="first_name"]');
     }
 
     get lastNameField() {
-        return $('[name="last_name"]')
+        return $('[name="last_name"]');
     }
 
     get emailField() {
-        return $('[name="email"]')
+        return $('[name="email"]');
     }
 
     get messageField() {
-        return $('[name="message"]')
+        return $('[name="message"]');
     }
 
     get submitButton() {
-        return $('[type="submit"]')
+        return $('[type="submit"]');
     }
 
     get replyHeader() {
-        return $('#contact_reply h1')
+        return $('#contact_reply h1');
+    }
+
+    get emptyFieldError() {
+        return $('body*=Error: all fields are required');
     }
 
     sendMessageToCompany({ firstName, lastName, email, message }) {
@@ -37,21 +41,6 @@ class ContactUsPage {
             this.messageField.setValue(message)
         }
         this.submitButton.click()
-    }
-
-    waitForSuccessMessage() {
-        return browser.waitUntil(function() {
-            const replyText = browser.getText('#contact_reply h1');
-            return replyText === 'Thank You for your Message!';
-        })
-    }
-
-    waitForEmptyFieldError() {
-        return browser.waitUntil(function() {
-            const errorText = browser.getText('body')
-            const matches = errorText.match('Error: all fields are required')[0]
-            return !!(matches)
-        })
     }
 }
 

@@ -5,46 +5,55 @@ describe('"Contact Us"', function() {
         browser.url('/Contact-Us/contactus.html');
     })
 
-    it.only('should be able to submit a successful submission via contact us form', function() {
+    it('should be able to submit a successful submission via contact us form', function() {
         ContactUsPage.sendMessageToCompany({
             firstName: 'John',
             lastName: 'Doe',
-            email: user.email,
-            message: user.message
+            email: 'john_doe@domain.com',
+            message: 'The most exiting thing!'
         });
 
-        // await ContactUsPage.waitForSuccessMessage();
-        // const isVisible = await ContactUsPage.replyHeader.isVisible();
-        // expect(isVisible).to.be.true;
+        expect(ContactUsPage.replyHeader.isDisplayed()).toBe(true);
     });
 
-    it('should NOT be able to submit a form with missing first name', async function() {
-        await ContactUsPage.sendMessageToCompany({
+    it('should be able to see proper submission text', function() {
+        ContactUsPage.sendMessageToCompany({
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'john_doe@domain.com',
+            message: 'The most exiting thing!'
+        });
+
+        expect(ContactUsPage.replyHeader.getText()).toBe('Thank You for your Message!');
+    });
+
+    it('should NOT be able to submit a form with missing first name', function() {
+        ContactUsPage.sendMessageToCompany({
             lastName: 'Doe',
             email: 'john_doe@domain.com',
             message: 'The most exiting thing!',
         });
 
-        expect(await ContactUsPage.waitForEmptyFieldError()).to.be.true;
+        expect(ContactUsPage.emptyFieldError.isDisplayed()).toBe(true);
     });
 
-    it('should NOT be able to submit a form with missing last name', async function() {
-        await ContactUsPage.sendMessageToCompany({
+    it('should NOT be able to submit a form with missing last name', function() {
+        ContactUsPage.sendMessageToCompany({
             firstName: 'John',
             email: 'john_doe@domain.com',
             message: 'The most exiting thing!',
         });
 
-        expect(await ContactUsPage.waitForEmptyFieldError()).to.be.true;
+        expect(ContactUsPage.emptyFieldError.isDisplayed()).toBe(true);
     });
 
-    it('should NOT be able to submit a form with missing email', async function() {
-        await ContactUsPage.sendMessageToCompany({
+    it('should NOT be able to submit a form with missing email', function() {
+        ContactUsPage.sendMessageToCompany({
             firstName: 'John',
             lastName: 'Doe',
             message: 'The most exiting thing!',
         });
 
-        expect(await ContactUsPage.waitForEmptyFieldError()).to.be.true;
+        expect(ContactUsPage.emptyFieldError.isDisplayed()).toBe(true);
     });
 });
