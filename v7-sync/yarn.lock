@@ -97,6 +97,11 @@
   resolved "https://registry.yarnpkg.com/@types/ejs/-/ejs-3.0.5.tgz#95a3a1c3d9603eba80fe67ff56da1ba275ef2eda"
   integrity sha512-k4ef69sS4sIqAPW9GoBnN+URAON2LeL1H0duQvL4RgdEBna19/WattYSA1qYqvbVEDRTSWzOw56tCLhC/m/IOw==
 
+"@types/fibers@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@types/fibers/-/fibers-3.1.0.tgz#3afa6d302587f52e63631cf2bc1acca6c0c3f65e"
+  integrity sha512-1o3I9xtk2PZFxwaLCC6gTaBfBZ5rvw/DSZZPK89fwuwO6LNrzSbC6rEs1xI0bQ3fCRWmO+uNJQQeD2J56oTMDg==
+
 "@types/fs-extra@^9.0.4":
   version "9.0.7"
   resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-9.0.7.tgz#a9ef2ffdab043def080c5bec94c03402f793577f"
@@ -186,7 +191,7 @@
   dependencies:
     "@types/puppeteer" "*"
 
-"@types/puppeteer@*":
+"@types/puppeteer@*", "@types/puppeteer@^5.4.0":
   version "5.4.3"
   resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-5.4.3.tgz#cdca84aa7751d77448d8a477dbfa0af1f11485f2"
   integrity sha512-3nE8YgR9DIsgttLW+eJf6mnXxq8Ge+27m5SU3knWmrlfl6+KOG0Bf9f7Ua7K+C4BnaTMAh3/UpySqdAYvrsvjg==
@@ -378,6 +383,18 @@
     chalk "^4.0.0"
     easy-table "^1.1.1"
     pretty-ms "^7.0.0"
+
+"@wdio/sync@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@wdio/sync/-/sync-7.0.3.tgz#33c152984259d8da57c1e25e435abd4d3e7b6c43"
+  integrity sha512-Ln6YCWz8fpuLxv9EtMeMRiCyTHvH/GXVgyf7uxATa619UnkPXNqty7nVUWEayJNxNJlwKNagj01teEGOSL2YBg==
+  dependencies:
+    "@types/fibers" "^3.1.0"
+    "@types/puppeteer" "^5.4.0"
+    "@wdio/logger" "7.0.0"
+    "@wdio/types" "7.0.3"
+    fibers "^5.0.0"
+    webdriverio "7.0.3"
 
 "@wdio/types@7.0.3":
   version "7.0.3"
@@ -907,6 +924,11 @@ del@^6.0.0:
     rimraf "^3.0.2"
     slash "^3.0.0"
 
+detect-libc@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
+  integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
+
 devtools-protocol@0.0.818844:
   version "0.0.818844"
   resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.818844.tgz#d1947278ec85b53e4c8ca598f607a28fa785ba9e"
@@ -1088,6 +1110,13 @@ fd-slicer@~1.1.0:
   integrity sha1-JcfInLH5B3+IkbvmHY85Dq4lbx4=
   dependencies:
     pend "~1.2.0"
+
+fibers@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/fibers/-/fibers-5.0.0.tgz#3a60e0695b3ee5f6db94e62726716fa7a59acc41"
+  integrity sha512-UpGv/YAZp7mhKHxDvC1tColrroGRX90sSvh8RMZV9leo+e5+EkRVgCEZPlmXeo3BUNQTZxUaVdLskq1Q2FyCPg==
+  dependencies:
+    detect-libc "^1.0.3"
 
 figures@^3.0.0:
   version "3.2.0"
