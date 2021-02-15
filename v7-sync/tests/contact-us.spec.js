@@ -1,19 +1,21 @@
 import ContactUsPage from '../page-objects/contact-us.page';
-const { tests } = require('../config/main-config');
-
-const { firstName, lastName, email, message } = tests;
+import { generateUserData } from '../service/data-providers';
 
 describe('"Contact Us"', () => {
+    let userData
+
     beforeEach(() => {
         browser.url('/Contact-Us/contactus.html');
+
+        userData = generateUserData();
     })
 
     it('should be able to submit a successful submission via contact us form', () => {
         ContactUsPage.sendMessageToCompany({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            message: message
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            email: userData.email,
+            message: userData.message
         });
 
         expect(ContactUsPage.replyHeader).toBeVisible();
@@ -21,10 +23,10 @@ describe('"Contact Us"', () => {
 
     it('should be able to see proper submission text', () => {
         ContactUsPage.sendMessageToCompany({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            message: message
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            email: userData.email,
+            message: userData.message
         });
 
         expect(ContactUsPage.replyHeader).toHaveTextContaining('Thank You for your Message!');
@@ -32,9 +34,9 @@ describe('"Contact Us"', () => {
 
     it('should NOT be able to submit a form with missing first name', () => {
         ContactUsPage.sendMessageToCompany({
-            lastName: lastName,
-            email: email,
-            message: message,
+            lastName: userData.lastName,
+            email: userData.email,
+            message: userData.message,
         });
 
         expect(ContactUsPage.emptyFieldError).toBeVisible();
@@ -42,9 +44,9 @@ describe('"Contact Us"', () => {
 
     it('should NOT be able to submit a form with missing last name', () => {
         ContactUsPage.sendMessageToCompany({
-            firstName: firstName,
-            email: email,
-            message: message,
+            firstName: userData.firstName,
+            email: userData.email,
+            message: userData.message,
         });
 
         expect(ContactUsPage.emptyFieldError).toBeVisible();
@@ -52,9 +54,9 @@ describe('"Contact Us"', () => {
 
     it('should NOT be able to submit a form with missing email', () => {
         ContactUsPage.sendMessageToCompany({
-            firstName: firstName,
-            lastName: lastName,
-            message: message,
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            message: userData.message,
         });
 
         expect(ContactUsPage.emptyFieldError).toBeVisible();

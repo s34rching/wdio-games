@@ -8,7 +8,6 @@ const mainConfig = {
         firstName: 'John',
         lastName: 'Doe',
         email: 'john_doe@domain.com',
-        message: 'The most exiting thing!',
     },
 };
 
