@@ -1,4 +1,4 @@
-const ContactUsPage = require('../page-objects/contact-us.page');
+import ContactUsPage from '../page-objects/contact-us.page';
 
 describe('"Contact Us"', () => {
     beforeEach(() => {
