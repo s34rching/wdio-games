@@ -1,4 +1,6 @@
-class ContactUsPage {
+import Basepage from "./basepage.page";
+
+class ContactUsPage extends Basepage {
     get firstNameField() {
         return $('[name="first_name"]');
     }
