@@ -1,3 +1,6 @@
+const { wdio } = require('./main-config');
+const { browser: defaultBrowser, baseUrl, waitforTimeout } = wdio;
+
 exports.config = {
     //
     // ====================
@@ -52,7 +55,7 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 1,
         //
-        browserName: 'chrome',
+        browserName: defaultBrowser,
         'goog:chromeOptions': {
             args: ['--disable-gpu', '--no-sandbox'],
         },
@@ -93,10 +96,10 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://www.webdriveruniversity.com',
+    baseUrl: baseUrl,
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: waitforTimeout,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
