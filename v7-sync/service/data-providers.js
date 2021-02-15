@@ -1,7 +1,7 @@
-const Chance = require('chance');
+import Chance from 'chance';
 const chance = new Chance();
 
-const generateUserData = () => (
+export const generateUserData = () => (
   {
     firstName: chance.first(),
     lastName: chance.last(),
@@ -9,5 +9,3 @@ const generateUserData = () => (
     message: chance.sentence()
   }
 )
-
-module.exports = { generateUserData };
